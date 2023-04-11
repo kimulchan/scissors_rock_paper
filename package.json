@@ -1,0 +1,15 @@
+{
+  "name": "scissors_rock_paper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": "https://github.com/kimulchan/scissors_rock_paper.git",
+  "author": "kimulchan <leerabi577@gmail.com>",
+  "license": "MIT",
+  "packageManager": "yarn@3.5.0",
+  "devDependencies": {
+    "typescript": "^5.0.2"
+  }
+}

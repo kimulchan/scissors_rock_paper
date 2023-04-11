@@ -1,0 +1,1 @@
+const useStatusBar = (time: number) => {};
