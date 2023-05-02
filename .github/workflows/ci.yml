@@ -29,4 +29,4 @@ jobs:
     needs: [get-diff-workspace]
     steps:
       - name: Test Matrix
-        run: echo ${{ needs.get-diff-workspace.outputs.diff-workspace }}
+        run: echo $needs.get-diff-workspace
