@@ -14,7 +14,7 @@ export const typoGenerator = (
 export const typo: TypoType = {
   heading1: typoGenerator(120, 600, 160),
   heading2: typoGenerator(64, 600, 86),
-  heading3: typoGenerator(36, 600, 54),
+  heading3: typoGenerator(52, 600, 64),
   heading4: typoGenerator(28, 500, 40),
   heading5: typoGenerator(24, 500, 36),
   heading6: typoGenerator(20, 500, 28),

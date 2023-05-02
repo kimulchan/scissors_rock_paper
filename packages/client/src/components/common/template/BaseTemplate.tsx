@@ -1,26 +1,11 @@
 import styled from "styled-components";
-import { Flex, FlexOption } from "../flex";
-import { HTMLAttributes, PropsWithChildren } from "react";
+import { Flex } from "../flex";
 
-interface BaseTemplateProps extends FlexOption {}
-
-const BaseTemplate = ({
-  children,
-  ...rest
-}: PropsWithChildren<BaseTemplateProps>) => {
-  return (
-    <TemplateContainer
-      dir="column"
-      fullHeight={true}
-      fullWidth={true}
-      {...rest}
-    >
-      {children}
-    </TemplateContainer>
-  );
-};
-
-const TemplateContainer = styled(Flex)`
+const BaseTemplate = styled(Flex).attrs(() => ({
+  dir: "column",
+  fullHeight: true,
+  fullWidth: true,
+}))`
   position: absolute;
   top: 0;
   left: 0;

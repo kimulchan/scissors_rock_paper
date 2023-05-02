@@ -13,10 +13,6 @@ app.get("/", (req: Request, res: Response) => {
   res.send("hello world");
 });
 
-type CallbackType = {
-  status: "error" | "success";
-};
-
 const io = redisAdapter(
   new socketIO.Server(httpServer, {
     cors: { origin: "*", methods: ["GET", "POST"] },
@@ -25,22 +21,27 @@ const io = redisAdapter(
 );
 
 io.on("connection", (socket) => {
-  socket.on("join-room", async (roomId: string, cb: () => void) => {
-    socket.join(roomId);
-    const roomMembers = await redisClient.get(roomId);
-    if (!!roomMembers) {
-      const roomMemberToNum = parseInt(roomMembers);
-      if (roomMemberToNum >= 2) cb({ status: "error" });
-    }
-  });
-
-  socket.on("create-room", (cb: (id: string) => void) => {
+  socket.on("create", (done) => {
     const newRoomId = generateId(6);
     socket.join(newRoomId);
-    redisClient.set(newRoomId, "1");
-    if (typeof cb !== "function") return;
-    cb(newRoomId);
+    console.log(done);
+    done(newRoomId);
   });
+
+  socket.on("join", (roomId, done) => {
+    socket.join(roomId);
+    done();
+    socket.in(roomId).emit("on_join");
+  });
+
+  socket.on("play", (roomId, SRPValue, done) => {
+    done(SRPValue);
+    socket.in(roomId).emit("on_play", SRPValue);
+  });
+
+  socket.on("leave-room");
+
+  socket.on("disconnect", () => {});
 });
 
 httpServer.listen(env.SERVER_PORT, () => {

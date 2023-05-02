@@ -1,20 +1,48 @@
-import { SRPType } from "@packages/types/common";
+import { SRPIconType, SRPType } from "@packages/types/common";
 import { Flex } from "../common/flex";
 import Typo from "../common/typo";
+import { SRPSelector } from "../../constant/SRP";
+import styled, { css } from "styled-components";
+import { useState } from "react";
 interface SelectSRPProps {
-  value: SRPType;
   onClick: (value: SRPType) => void;
 }
 
-const SelectSRP = ({ onClick, value }: SelectSRPProps) => {
-  const a = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {};
+const SelectSRP = ({ onClick }: SelectSRPProps) => {
+  const [selectValue, setSelectValue] = useState<null | SRPType>(null);
+
+  const onClickSRP = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const selectSRPValue =
+      SRPSelector[e.currentTarget.innerText as SRPIconType];
+    !selectValue &&
+      (() => {
+        onClick(selectSRPValue);
+        setSelectValue(selectSRPValue);
+      })();
+  };
+
+  const isSelect = (mySRP: SRPType) =>
+    selectValue === null || mySRP === selectValue;
   return (
-    <Flex gap={8} justify="center" fullWidth={true}>
-      <Typo.Body2 onClick={(e) => console.log(e)}>✊</Typo.Body2>
-      <Typo.Body2>✌️</Typo.Body2>
-      <Typo.Body2>✋</Typo.Body2>
+    <Flex gap={52} justify="center" align="center" fullWidth={true}>
+      <SRPSelectButton onClick={onClickSRP} isSelect={isSelect("ROCK")}>
+        ✊
+      </SRPSelectButton>
+      <SRPSelectButton onClick={onClickSRP} isSelect={isSelect("SCISSORS")}>
+        ✌️
+      </SRPSelectButton>
+      <SRPSelectButton onClick={onClickSRP} isSelect={isSelect("PAPER")}>
+        ✋
+      </SRPSelectButton>
     </Flex>
   );
 };
+
+const SRPSelectButton = styled(Typo.Heading2)<{ isSelect: boolean }>`
+  cursor: pointer;
+  visibility: visible;
+  ${({ isSelect, theme }) => !isSelect && "display: none"};
+  transition: all 0.5s;
+`;
 
 export default SelectSRP;

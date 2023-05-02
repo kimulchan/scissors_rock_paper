@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Path, RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import * as Page from "./pages";
 const router = createBrowserRouter([
@@ -9,6 +9,9 @@ const router = createBrowserRouter([
   { path: "/test2", element: <Page.Test2></Page.Test2> },
   { path: "/create", element: <Page.Create /> },
   { path: "/join", element: <Page.Join /> },
+  { path: "/battle/:roomId", element: <Page.Battle /> },
+  { path: "/result/:roomId", element: <Page.Result /> },
+  { path: "/same/:roomId", element: <Page.Same /> },
 ]);
 
 const MainRouter = () => {

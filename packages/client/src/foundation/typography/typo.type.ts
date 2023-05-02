@@ -18,7 +18,7 @@ type TypoKeyConverter<
   TypoNumbers extends number[]
 > = `${TypoSection}${TypoNumbers[number]}`;
 
-type TypoKeyType =
+export type TypoKeyType =
   | TypoKeyConverter<"heading", [1, 2, 3, 4, 5, 6]>
   | TypoKeyConverter<"body", [1, 2, 3, 4]>;
 

@@ -8,13 +8,9 @@ import Template from "../components/common/template";
 import Button from "../components/common/button";
 
 const Test1 = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const router = useNavigate();
   return (
     <>
-      {isOpen && (
-        <CountDownModal callback={() => router("/create")}></CountDownModal>
-      )}
       <AbsoluteContainer
         fullWidth={true}
         fullHeight={true}
@@ -33,7 +29,7 @@ const Test1 = () => {
         </Typo.Marquee>
       </AbsoluteContainer>
       <Template justify="end" align="center" gap={8}>
-        <Button onClick={() => setIsOpen(true)} fill="bdMain">
+        <Button onClick={() => router("/create")} fill="bdMain">
           방 생성하기
         </Button>
         <Flex gap={4}>

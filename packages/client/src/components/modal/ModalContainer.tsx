@@ -1,0 +1,1 @@
+const ModalContext = React.createContext({});

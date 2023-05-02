@@ -18,6 +18,10 @@ const BaseButton = styled.button<BaseButtonProps>`
   border-radius: 8px;
   transition: all 0.5s;
   cursor: pointer;
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 `;
 
 const buttonColorSelector: Record<
