@@ -3031,6 +3031,7 @@ __metadata:
     "@types/node": ^18.16.0
     child_process: ^1.0.2
     commander: ^10.0.1
+    ts-node: ^10.9.1
   languageName: unknown
   linkType: soft
 

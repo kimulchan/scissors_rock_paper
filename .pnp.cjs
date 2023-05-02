@@ -3635,7 +3635,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/commander", "npm:2.12.2"],\
             ["@types/node", "npm:18.16.3"],\
             ["child_process", "npm:1.0.2"],\
-            ["commander", "npm:10.0.1"]\
+            ["commander", "npm:10.0.1"],\
+            ["ts-node", "virtual:c9e759cf336b3130fb87ca626a80f8d129098cb576ec3414e12431fa9c04e55ecbea5c0a9bd3f91f82d03ba95cd47f43a5cea4fbe9ad0976482dec5f907d617d#npm:10.9.1"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -4112,6 +4113,42 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["diff", "npm:4.0.2"],\
             ["make-error", "npm:1.3.6"],\
             ["typescript", "patch:typescript@npm%3A5.0.2#~builtin<compat/typescript>::version=5.0.2&hash=85af82"],\
+            ["v8-compile-cache-lib", "npm:3.0.1"],\
+            ["yn", "npm:3.1.1"]\
+          ],\
+          "packagePeers": [\
+            "@swc/core",\
+            "@swc/wasm",\
+            "@types/node",\
+            "@types/swc__core",\
+            "@types/swc__wasm",\
+            "@types/typescript",\
+            "typescript"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:c9e759cf336b3130fb87ca626a80f8d129098cb576ec3414e12431fa9c04e55ecbea5c0a9bd3f91f82d03ba95cd47f43a5cea4fbe9ad0976482dec5f907d617d#npm:10.9.1", {\
+          "packageLocation": "./.yarn/__virtual__/ts-node-virtual-2b533f8e1a/0/cache/ts-node-npm-10.9.1-6c268be7f4-090adff130.zip/node_modules/ts-node/",\
+          "packageDependencies": [\
+            ["ts-node", "virtual:c9e759cf336b3130fb87ca626a80f8d129098cb576ec3414e12431fa9c04e55ecbea5c0a9bd3f91f82d03ba95cd47f43a5cea4fbe9ad0976482dec5f907d617d#npm:10.9.1"],\
+            ["@cspotcode/source-map-support", "npm:0.8.1"],\
+            ["@swc/core", null],\
+            ["@swc/wasm", null],\
+            ["@tsconfig/node10", "npm:1.0.9"],\
+            ["@tsconfig/node12", "npm:1.0.11"],\
+            ["@tsconfig/node14", "npm:1.0.3"],\
+            ["@tsconfig/node16", "npm:1.0.3"],\
+            ["@types/node", "npm:18.16.3"],\
+            ["@types/swc__core", null],\
+            ["@types/swc__wasm", null],\
+            ["@types/typescript", null],\
+            ["acorn", "npm:8.8.2"],\
+            ["acorn-walk", "npm:8.2.0"],\
+            ["arg", "npm:4.1.3"],\
+            ["create-require", "npm:1.1.1"],\
+            ["diff", "npm:4.0.2"],\
+            ["make-error", "npm:1.3.6"],\
+            ["typescript", null],\
             ["v8-compile-cache-lib", "npm:3.0.1"],\
             ["yn", "npm:3.1.1"]\
           ],\
