@@ -31,7 +31,7 @@ jobs:
     strategy:
       matrix:
         workspace: ${{ fromJson(needs.get-diff-workspace.outputs.diff-workspaces) }}
-        
+    if: matrix.workspace != []
     steps:
       - name: Test Matrix
         env:
