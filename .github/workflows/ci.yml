@@ -21,7 +21,7 @@ jobs:
         
       - name: Get Diff Workspace
         id: diff-workspace
-        run: echo "workspace-matrix=$(yarn workspace script get-diff-workspace)" >> "$GITHUB_OUTPUT"
+        run: echo "workspace-matrix=$(fromJson(yarn workspace script get-diff-workspace))" >> "$GITHUB_OUTPUT"
       - name: Get Output
         run: echo "Workspace:${{ steps.diff-workspace.outputs.workspace-matrix }}"
   build:
