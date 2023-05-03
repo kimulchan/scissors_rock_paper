@@ -28,10 +28,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     needs: [get-diff-workspace]
+    if: needs.get-diff-workspace.outputs.diff-workspaces != '[]'
     strategy:
       matrix:
         workspace: ${{ fromJson(needs.get-diff-workspace.outputs.diff-workspaces) }}
-    if: matrix.workspace != []
     steps:
       - name: Test Matrix
         env:
